@@ -1,15 +1,17 @@
-FROM ubuntu:20.04
+FROM ghcr.io/linuxserver/webtop:ubuntu-mate
 
-LABEL maintainer="rlabarta"
+RUN apt-get update && apt-get install -y \
+	gimp \
+	--no-install-recommends \
+	&& rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gimp && \
-    rm -rf /var/lib/apt/lists/* && \
-    mkdir /root/Share
+# add local files
+COPY /root /
 
-VOLUME /root/Share
+# ports and volumes
+EXPOSE 3000
 
-EXPOSE 80
+VOLUME /config
 
-CMD ["/usr/bin/gimp"]
+
 
