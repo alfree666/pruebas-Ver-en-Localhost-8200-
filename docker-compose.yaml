@@ -9,18 +9,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-#   privileged: true #optional
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Madrid
-#     - SUBFOLDER=/ #optional
-#    volumes:
+    volumes:
 #      - ./data:/config
-#     - ./docker.sock:/var/run/docker.sock #optional
     ports:
       - 8200:80
-#    shm_size: "1gb" #optional
     restart: unless-stopped    
 
 
