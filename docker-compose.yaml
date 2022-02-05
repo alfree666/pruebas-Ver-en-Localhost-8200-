@@ -6,11 +6,9 @@ services:
     container_name: app
     build:
       context: .
-      dockerfile: Dockerfile#
-#   volumes:
-#     - ./data:/root/Share
+      dockerfile: Dockerfile
     ports:
-      - 8200:3000
+      - "8200:3000"
     restart: unless-stopped    
 
 
